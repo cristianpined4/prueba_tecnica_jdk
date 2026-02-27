@@ -4,7 +4,7 @@
     "nit": "0614-140595-102-3",
     "nrc": "122546-7",
     "nombre_razon_social": "Corporacion Alpha SA de CV",
-    "nombre_comercial": "Alpha Corp",
+    "nombre_comercial": "Alpha Corp SA de CV",
     "numero_cliente": "10001",
     "correo": "alpha@empresa.com",
     "website": "www.alphacorp.com",
@@ -15,8 +15,8 @@
     "contacto_nombre": "Carlos",
     "contacto_apellido": "Martinez",
     "contacto_rol": "Gerente General",
-    "contacto_telefono": "22221111",
-    "contacto_movil": "77771111",
+    "contacto_telefono": "22221112",
+    "contacto_movil": "77771112",
     "contacto_correo": "carlos@alphacorp.com",
     "departamento": "San salvador",
     "municipio": "San salvador",
@@ -26,7 +26,7 @@
   },
   {
     "tipo": "juridica",
-    "nit": "0614-250396-101-1",
+    "nit": "0614-250192-101-8",
     "nrc": "234567-8",
     "nombre_razon_social": "Distribuidora Beta SA de CV",
     "nombre_comercial": "Beta Distribuciones",
@@ -76,7 +76,7 @@
   },
   {
     "tipo": "juridica",
-    "nit": "0614-120690-101-1",
+    "nit": "0614-160298-101-5",
     "nrc": "456789-0",
     "nombre_razon_social": "Servicios Delta SA de CV",
     "nombre_comercial": "Delta Services",
@@ -101,7 +101,7 @@
   },
   {
     "tipo": "juridica",
-    "nit": "INVALID-NIT-123",
+    "nit": "0614-230595-101-2",
     "nrc": "567890-1",
     "nombre_razon_social": "Comercial Epsilon SA de CV",
     "nombre_comercial": "Epsilon Commerce",
@@ -126,7 +126,7 @@
   },
   {
     "tipo": "natural",
-    "dui": "04512367-8",
+    "dui": "04512367-3",
     "es_contribuyente": false,
     "es_extranjero": false,
     "nombres": "Juan Carlos",
@@ -142,7 +142,7 @@
   },
   {
     "tipo": "natural",
-    "dui": "05613910-0",
+    "dui": "05613910-8",
     "es_contribuyente": true,
     "es_extranjero": false,
     "nombres": "Maria Elena",
@@ -158,7 +158,7 @@
   },
   {
     "tipo": "natural",
-    "dui": "06734589-0",
+    "dui": "06734589-3",
     "es_contribuyente": false,
     "es_extranjero": false,
     "nombres": "Roberto Antonio",
@@ -174,7 +174,7 @@
   },
   {
     "tipo": "natural",
-    "dui": "07845690-1",
+    "dui": "07845690-8",
     "es_contribuyente": false,
     "es_extranjero": false,
     "nombres": "Carolina",
@@ -190,7 +190,7 @@
   },
   {
     "tipo": "natural",
-    "dui": "INVALID-DUI",
+    "dui": "08956721-7",
     "es_contribuyente": false,
     "es_extranjero": false,
     "nombres": "Fernando Jose",
