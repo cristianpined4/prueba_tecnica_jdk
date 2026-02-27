@@ -330,9 +330,15 @@ def test_nuevo_cliente(driver: WebDriver):
 
                     seleccionar_dropdown(driver, "Departamento", cliente["departamento"])
                     time.sleep(5)
-                    seleccionar_dropdown(driver, "Municipio", cliente.get("municipio", ""))
+                    if cliente.get("municipio"):
+                        seleccionar_dropdown(driver, "Municipio", cliente["municipio"])
+                    else:
+                        seleccionar_dropdown(driver, "Municipio", "", timeout=5)
                     time.sleep(5)
-                    seleccionar_dropdown(driver, "Distrito", cliente.get("distrito", ""))
+                    if cliente.get("distrito"):
+                        seleccionar_dropdown(driver, "Distrito", cliente["distrito"])
+                    else:
+                        seleccionar_dropdown(driver, "Distrito", "", timeout=5)
                     time.sleep(5)
 
                     try:
@@ -340,7 +346,7 @@ def test_nuevo_cliente(driver: WebDriver):
                         if calle_inputs:
                             calle_inputs[0].click()
                             time.sleep(1)
-                            calle_inputs[0].clear()
+                            calle_inputs[0].send_keys(Keys.CONTROL + "a")
                             calle_inputs[0].send_keys(cliente["calle"])
                             logger.info(f"Calle ingresada")
                             time.sleep(3)
@@ -348,56 +354,36 @@ def test_nuevo_cliente(driver: WebDriver):
                         pass
 
                     try:
-                        continuar_btn2 = driver.find_element(By.XPATH, "//button[@type='submit']//span[text()='Continuar']/ancestor::button")
-                        driver.execute_script("arguments[0].scrollIntoView(true)", continuar_btn2)
+                        guardar_btn = driver.find_element(By.XPATH, "//button[@type='submit']//span[text()='Guardar']/ancestor::button")
+                        driver.execute_script("arguments[0].scrollIntoView(true)", guardar_btn)
                         time.sleep(2)
-                        continuar_btn2.click()
-                        logger.info("Continuar clickeado (Tab 2 -> Tab 3)")
+                        guardar_btn.click()
+                        logger.info("Guardar clickeado")
                         time.sleep(10)
                     except Exception as ex:
-                        logger.error(f"Error Continuar Tab 2: {ex}")
+                        logger.error(f"Error Guardar: {ex}")
 
-                    tab3_active = driver.find_elements(By.XPATH, "//div[contains(@class,'ant-tabs-tab-active')]//div[contains(text(),'env') or contains(text(),'Env')]")
+                    try:
+                        confirm_btn = WebDriverWait(driver, 15).until(
+                            EC.element_to_be_clickable((By.XPATH, "//button[contains(@class,'bg-secondary-100') and contains(normalize-space(),'Continuar')]"))
+                        )
+                        confirm_btn.click()
+                        logger.info("Confirmacion post-guardado clickeada")
+                        time.sleep(10)
+                    except Exception:
+                        logger.warning("No se encontro boton de confirmacion")
 
-                    if tab3_active:
-                        logger.info("Tab 3 Envio activo")
-                        if cliente.get("usar_misma_direccion"):
-                            try:
-                                usar_misma = driver.find_elements(By.XPATH, "//span[contains(text(),'misma direcci')]/ancestor::label")
-                                if usar_misma:
-                                    usar_misma[0].click()
-                                    time.sleep(3)
-                                    logger.info("Usar misma direccion activado")
-                            except Exception:
-                                pass
-
-                        try:
-                            guardar_btn = driver.find_element(By.XPATH, "//button[@type='submit']//span[text()='Guardar']/ancestor::button")
-                            driver.execute_script("arguments[0].scrollIntoView(true)", guardar_btn)
-                            time.sleep(2)
-                            guardar_btn.click()
-                            logger.info("Guardar clickeado")
-                            time.sleep(10)
-                        except Exception as ex:
-                            logger.error(f"Error Guardar: {ex}")
-
-                        modal_cerrado = len(driver.find_elements(By.CSS_SELECTOR, ".ant-modal-content")) == 0
-                        tiempo_cliente = round(time.time() - tiempo_inicio_cliente, 2)
-                        if modal_cerrado:
-                            logger.info(f"*** EXITO *** Cliente {i+1}: {nombre_display} ({tiempo_cliente}s)")
-                            resultados.append({"numero": i+1, "nombre": nombre_display, "tipo": cliente["tipo"], "resultado": "EXITO", "error": "", "duracion": tiempo_cliente, "screenshot": ""})
-                        else:
-                            screenshot_path = os.path.join(SCREENSHOTS_DIR, f"fallo_cliente_{i+1}.png")
-                            driver.save_screenshot(screenshot_path)
-                            logger.warning(f"*** FALLO *** Cliente {i+1}: Modal no cerrado ({tiempo_cliente}s)")
-                            resultados.append({"numero": i+1, "nombre": nombre_display, "tipo": cliente["tipo"], "resultado": "FALLO", "error": "Modal no se cerro despues de Guardar", "duracion": tiempo_cliente, "screenshot": screenshot_path})
-                            recuperar_pagina(driver)
+                    time.sleep(5)
+                    modal_cerrado = len(driver.find_elements(By.CSS_SELECTOR, ".ant-modal-content")) == 0
+                    tiempo_cliente = round(time.time() - tiempo_inicio_cliente, 2)
+                    if modal_cerrado:
+                        logger.info(f"*** EXITO *** Cliente {i+1}: {nombre_display} ({tiempo_cliente}s)")
+                        resultados.append({"numero": i+1, "nombre": nombre_display, "tipo": cliente["tipo"], "resultado": "EXITO", "error": "", "duracion": tiempo_cliente, "screenshot": ""})
                     else:
                         screenshot_path = os.path.join(SCREENSHOTS_DIR, f"fallo_cliente_{i+1}.png")
                         driver.save_screenshot(screenshot_path)
-                        tiempo_cliente = round(time.time() - tiempo_inicio_cliente, 2)
-                        logger.warning(f"*** FALLO *** No avanzo a tab 3 ({tiempo_cliente}s)")
-                        resultados.append({"numero": i+1, "nombre": nombre_display, "tipo": cliente["tipo"], "resultado": "FALLO", "error": "No avanzo a tab 3", "duracion": tiempo_cliente, "screenshot": screenshot_path})
+                        logger.warning(f"*** FALLO *** Cliente {i+1}: Modal no cerrado ({tiempo_cliente}s)")
+                        resultados.append({"numero": i+1, "nombre": nombre_display, "tipo": cliente["tipo"], "resultado": "FALLO", "error": "Modal no se cerro despues de Guardar", "duracion": tiempo_cliente, "screenshot": screenshot_path})
                         recuperar_pagina(driver)
                 else:
                     screenshot_path = os.path.join(SCREENSHOTS_DIR, f"fallo_cliente_{i+1}.png")
@@ -488,9 +474,15 @@ def test_nuevo_cliente(driver: WebDriver):
 
                 seleccionar_dropdown(driver, "Departamento", cliente["departamento"])
                 time.sleep(5)
-                seleccionar_dropdown(driver, "Municipio", cliente.get("municipio", ""))
+                if cliente.get("municipio"):
+                    seleccionar_dropdown(driver, "Municipio", cliente["municipio"])
+                else:
+                    seleccionar_dropdown(driver, "Municipio", "", timeout=5)
                 time.sleep(5)
-                seleccionar_dropdown(driver, "Distrito", cliente.get("distrito", ""))
+                if cliente.get("distrito"):
+                    seleccionar_dropdown(driver, "Distrito", cliente["distrito"])
+                else:
+                    seleccionar_dropdown(driver, "Distrito", "", timeout=5)
                 time.sleep(5)
 
                 try:
@@ -498,7 +490,7 @@ def test_nuevo_cliente(driver: WebDriver):
                     if calle_inputs:
                         calle_inputs[0].click()
                         time.sleep(1)
-                        calle_inputs[0].clear()
+                        calle_inputs[0].send_keys(Keys.CONTROL + "a")
                         calle_inputs[0].send_keys(cliente["calle"])
                         logger.info(f"Calle ingresada")
                         time.sleep(3)
@@ -515,6 +507,17 @@ def test_nuevo_cliente(driver: WebDriver):
                 except Exception as ex:
                     logger.error(f"Error Guardar natural: {ex}")
 
+                try:
+                    confirm_btn = WebDriverWait(driver, 15).until(
+                        EC.element_to_be_clickable((By.XPATH, "//button[contains(@class,'bg-secondary-100') and contains(normalize-space(),'Continuar')]"))
+                    )
+                    confirm_btn.click()
+                    logger.info("Confirmacion post-guardado clickeada")
+                    time.sleep(10)
+                except Exception:
+                    logger.warning("No se encontro boton de confirmacion")
+
+                time.sleep(5)
                 modal_cerrado = len(driver.find_elements(By.CSS_SELECTOR, ".ant-modal-content")) == 0
                 tiempo_cliente = round(time.time() - tiempo_inicio_cliente, 2)
                 if modal_cerrado:

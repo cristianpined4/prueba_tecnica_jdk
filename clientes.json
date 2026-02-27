@@ -1,8 +1,8 @@
 [
   {
     "tipo": "juridica",
-    "nit": "0614-250395-101-1",
-    "nrc": "123456-7",
+    "nit": "0614-140595-102-3",
+    "nrc": "122546-7",
     "nombre_razon_social": "Corporacion Alpha SA de CV",
     "nombre_comercial": "Alpha Corp",
     "numero_cliente": "10001",
@@ -15,15 +15,13 @@
     "contacto_nombre": "Carlos",
     "contacto_apellido": "Martinez",
     "contacto_rol": "Gerente General",
-    "contacto_telefono": "+503 2222 1111",
-    "contacto_movil": "+503 7777 1111",
+    "contacto_telefono": "22221111",
+    "contacto_movil": "77771111",
     "contacto_correo": "carlos@alphacorp.com",
-    "departamento": "San Salvador",
-    "municipio": "San salvador centro",
-    "distrito": "San Salvador",
+    "departamento": "San salvador",
+    "municipio": "San salvador",
+    "distrito": "San salvador",
     "calle": "Calle Principal #123, Colonia Escalon",
-    "complemento": "Edificio Torre Alpha, Piso 5",
-    "zip_code": "01101",
     "usar_misma_direccion": true
   },
   {
@@ -42,15 +40,13 @@
     "contacto_nombre": "Maria",
     "contacto_apellido": "Lopez",
     "contacto_rol": "Directora Comercial",
-    "contacto_telefono": "+503 2233 4455",
-    "contacto_movil": "+503 7788 9900",
+    "contacto_telefono": "22334455",
+    "contacto_movil": "77889900",
     "contacto_correo": "maria@betadist.com",
-    "departamento": "La Libertad",
-    "municipio": "La libertad norte",
-    "distrito": "Quezaltepeque",
+    "departamento": "La libertad",
+    "municipio": "",
+    "distrito": "",
     "calle": "Boulevard Sur #456, Residencial Las Palmas",
-    "complemento": "Local 12",
-    "zip_code": "01501",
     "usar_misma_direccion": true
   },
   {
@@ -69,15 +65,13 @@
     "contacto_nombre": "Roberto",
     "contacto_apellido": "Hernandez",
     "contacto_rol": "Contador",
-    "contacto_telefono": "+503 2244 5566",
-    "contacto_movil": "+503 7799 0011",
+    "contacto_telefono": "22445566",
+    "contacto_movil": "77990011",
     "contacto_correo": "roberto@gammainv.com",
-    "departamento": "San Salvador",
-    "municipio": "San salvador norte",
-    "distrito": "Aguilares",
+    "departamento": "Santa ana",
+    "municipio": "",
+    "distrito": "",
     "calle": "Avenida Masferrer Norte #789",
-    "complemento": "Oficina 301",
-    "zip_code": "01102",
     "usar_misma_direccion": true
   },
   {
@@ -96,15 +90,13 @@
     "contacto_nombre": "Ana",
     "contacto_apellido": "Garcia",
     "contacto_rol": "Asistente Administrativo",
-    "contacto_telefono": "+503 2255 6677",
-    "contacto_movil": "+503 7700 1122",
+    "contacto_telefono": "22556677",
+    "contacto_movil": "77001122",
     "contacto_correo": "ana@deltaserv.com",
-    "departamento": "San Salvador",
-    "municipio": "San salvador sur",
+    "departamento": "Sonsonate",
+    "municipio": "",
     "distrito": "",
     "calle": "Paseo General Escalon #1012",
-    "complemento": "Centro Comercial Escalon, Local 5A",
-    "zip_code": "01103",
     "usar_misma_direccion": true
   },
   {
@@ -123,15 +115,13 @@
     "contacto_nombre": "Pedro",
     "contacto_apellido": "Ramirez",
     "contacto_rol": "Vendedor Senior",
-    "contacto_telefono": "+503 2266 7788",
-    "contacto_movil": "+503 7711 2233",
+    "contacto_telefono": "22667788",
+    "contacto_movil": "77112233",
     "contacto_correo": "pedro@epsilon.com",
-    "departamento": "La Libertad",
-    "municipio": "La libertad oeste",
-    "distrito": "Sacacoyo",
+    "departamento": "Chalatenango",
+    "municipio": "",
+    "distrito": "",
     "calle": "Calle al Volcan #555",
-    "complemento": "Bodega 3",
-    "zip_code": "01502",
     "usar_misma_direccion": true
   },
   {
@@ -145,11 +135,10 @@
     "correo": "juancarlos@correo.com",
     "telefono": "22778899",
     "movil": "77223344",
-    "departamento": "San Salvador",
-    "municipio": "San salvador centro",
-    "distrito": "Mejicanos",
-    "calle": "Colonia Miramonte, Calle Los Almendros #25",
-    "zip_code": "01104"
+    "departamento": "San salvador",
+    "municipio": "Mejicanos",
+    "distrito": "",
+    "calle": "Colonia Miramonte, Calle Los Almendros #25"
   },
   {
     "tipo": "natural",
@@ -162,11 +151,10 @@
     "correo": "mariaelena@correo.com",
     "telefono": "22889900",
     "movil": "77334455",
-    "departamento": "La Libertad",
-    "municipio": "La libertad norte",
-    "distrito": "Quezaltepeque",
-    "calle": "Residencial Utila, Pasaje 3, Casa #10",
-    "zip_code": "01503"
+    "departamento": "La libertad",
+    "municipio": "",
+    "distrito": "",
+    "calle": "Residencial Utila, Pasaje 3, Casa #10"
   },
   {
     "tipo": "natural",
@@ -179,11 +167,10 @@
     "correo": "roberto.mejia@correo.com",
     "telefono": "22990011",
     "movil": "77445566",
-    "departamento": "San Salvador",
-    "municipio": "San salvador norte",
-    "distrito": "Aguilares",
-    "calle": "Urbanizacion La Sultana, Block F #15",
-    "zip_code": "01105"
+    "departamento": "San salvador",
+    "municipio": "Ayutuxtepeque",
+    "distrito": "",
+    "calle": "Urbanizacion La Sultana, Block F #15"
   },
   {
     "tipo": "natural",
@@ -196,11 +183,10 @@
     "correo": "carolina.rivas@correo.com",
     "telefono": "23001122",
     "movil": "77556677",
-    "departamento": "San Salvador",
-    "municipio": "San salvador centro",
-    "distrito": "Cuscatancingo",
-    "calle": "Colonia Escalon, Avenida Norte #88",
-    "zip_code": "01106"
+    "departamento": "San salvador",
+    "municipio": "Soyapango",
+    "distrito": "",
+    "calle": "Colonia Escalon, Avenida Norte #88"
   },
   {
     "tipo": "natural",
@@ -213,10 +199,9 @@
     "correo": "fernando.torres@correo.com",
     "telefono": "23112233",
     "movil": "77667788",
-    "departamento": "La Libertad",
-    "municipio": "La libertad oeste",
-    "distrito": "Sacacoyo",
-    "calle": "Colonia San Antonio, Calle Principal #200",
-    "zip_code": "01504"
+    "departamento": "Cuscatlán",
+    "municipio": "",
+    "distrito": "",
+    "calle": "Colonia San Antonio, Calle Principal #200"
   }
 ]
